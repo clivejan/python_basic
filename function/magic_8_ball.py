@@ -22,6 +22,4 @@ def get_answer(answer_number):
 	elif answer_number == 9:
 		return "nine"
 
-r = random.randint(1, 9)
-fortune = get_answer(r)
-print(fortune)
+print(get_answer(random.randint(1, 9)))
