@@ -4,7 +4,7 @@
 
 import pyperclip
 
-text = pyperclip.paste
+text = pyperclip.paste()
 
 #Separate lines and add stars
 lines = text.split('\n')
@@ -13,4 +13,4 @@ for i in range(len(lines)):
 
 text = '\n'.join(lines)
 
-pyperclip.paste()
+pyperclip.copy(text)
