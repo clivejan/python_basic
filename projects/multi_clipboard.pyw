@@ -6,3 +6,13 @@ Usage:
 	multi_clipboard.pyw list <keyword> - Loads all keywords to clopboard.
 	multi_clipboard.pyw <keyword> - Loads keyword to clipboard.
 """
+
+import sys, pyperclip, shelve
+
+mcb_shelve = shelve.open('/tmp/py_test_dir/mcb')
+
+# TODO: Save clopboard content
+
+# TODO: List leywords and load content
+
+mcb_shelve.close()
