@@ -16,5 +16,9 @@ if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
 	mcb_shelve[sys,argv[2]] = pyperclip.paste()
 elif len(sys.argv) == 2:
 # TODO: List leywords and load content
+	if sys.argv[1].lower() == 'list':
+		pyperclip.copy(mcb_shelve.keys())
+	else:
+		pyperclip.copy(mcb_shelve[sys.argv[1]])
 
 mcb_shelve.close()
