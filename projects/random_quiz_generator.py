@@ -45,19 +45,19 @@ for quiz_num in range(35):
 		wrong_answers = list(capitals.values())
 		del wrong_answers[wrong_answers.index(corrent_answer)]
 		wrong_answers = random.sample(wrong_answers, 3)
-		answer_options = wrong_answers + corrent_answer
+		answer_options = wrong_answers + [corrent_answer]
 		random.shuffle(answer_options)
 
 		# Write the question and the answer options to the quiz file.
 		quiz_file.write(f"{question_num+1}. What is the capitals of "
-			"{states[question_num]}\n")
+			f"{states[question_num]}\n")
 		for i in range(4):
 			quiz_file.write(f"\t{'ABCD'[i]}. {answer_options[i]}")
 		quiz_file.write('\n')
 
 		# Write the answer key to a file
 		answer_key_file.write(f"{question_num+1}. "
-			"{'ABCD'.[answer_options.index(corrent_answer)]}")
+			f"{'ABCD'[answer_options.index(corrent_answer)]}\n")
 
 	quiz_file.close()
 	answer_key_file.close()
