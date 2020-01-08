@@ -20,3 +20,16 @@ email_regex = (r'''
 	[a-zA-Z0-9.-]+					# doamin name
 	(\.[a-zA-Z]{2,4})				# dot-something
 	''', re.VERBOSE)
+
+# Findn matches in clipboard text
+text = pyperclip.paste()
+matches = []
+
+for groups in phone_regex.findall(text):
+	phone_number = '-'.join(groups[1], groups(3), groups(5))
+	if groups(8):
+		phone_number = f"{phone_number} x{groups(8)}"
+	matches.append(phone_number)
+
+for groups in email_regex.findall(text):
+	matches.append(groups(0))
