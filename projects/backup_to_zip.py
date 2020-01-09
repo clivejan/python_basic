@@ -31,7 +31,7 @@ def backup_to_zip(folder):
 			if filename.startswith(os.path.basename(folder)) and \
 				filename.endswith('zip'):
 				continue
-			backup_zip.write(os.path.join(dirname, filename))
+			backup_zip.write(os.path.join(dirname, filename b))
 
 	backup_zip.close()
 	print('Done.')
