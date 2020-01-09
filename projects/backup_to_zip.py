@@ -21,8 +21,17 @@ def backup_to_zip(folder):
 	print(f"Creating {zip_filename}...")
 	backup_zip = zipfile.ZipFile(zip_filename, 'w')
 
-	# TODO: Walk the entire folder tree and compress the file in each folder.
-
+	# Walk the entire folder tree and compress the file in each folder.
+	for dirname, sub_dirnames, filenames in os.walk(folder):
+		print(f"Adding files in {dirname}...")
+		# Add the current folder to the ZIP file
+		backup_zip.write(dirname)
+		# Add all the file s in this folder to the ZIP file.
+		for filename in filenames:
+			if filename.startswith(os.path.basename(folder)) and \
+				filename.endswith('zip'):
+				continue
+			backup_zip.write(os.path.join(dirname, filename))
 
 	backup_zip.close()
 	print('Done.')
