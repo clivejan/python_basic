@@ -27,6 +27,13 @@ for filename in os.listdir(path):
 	year_part = mo.group(7)
 	after_part = mo.group(9)
 
-# TODO: Form the EU-style filename
+# Form the EU-style filename
+	eu_filename = f"{before_part}{day_part}-{month_part}-{year_part}{after_part}"
 
-# TODO Rename the files
+# Get file absolute file paths
+	us_file = os.path.join(path, filename)
+	eu_file = os.path.join(path, eu_filename)
+	
+# Rename the files
+	#print(f"{us_file} > {eu_file}")
+	shutil.move(us_file, eu_file)
