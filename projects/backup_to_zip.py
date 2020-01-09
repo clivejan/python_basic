@@ -12,15 +12,19 @@ def backup_to_zip(folder):
 	# what files already exists.
 	number = 1
 	while True:
-		zip_filename = f"{os.path.basename(folder)}_{number}.zip"
+		zip_filename = f"/tmp/{os.path.basename(folder)}_{number}.zip"
 		if not os.path.exists(zip_filename):
 			break
 		number += 1
 
-	# TODO: Create the ZIP file
+	# Create the ZIP file
+	print(f"Creating {zip_filename}...")
+	backup_zip = zipfile.ZipFile(zip_filename, 'w')
 
 	# TODO: Walk the entire folder tree and compress the file in each folder.
 
+
+	backup_zip.close()
 	print('Done.')
 
 backup_to_zip('/Users/clive/CliveSpace/github/Python')
