@@ -13,11 +13,19 @@ date_regex = re.compile(r'''(
 	(.*?)$					# all text after the date
 	)''', re.VERBOSE)
 
-# TODO: Loop over the files in the specified directory.
-
-# TODO: Skip files without a date.
-
-# TODO: Get the different parts of the filename.
+# Loop over the files in the specified directory.
+path = '/tmp/py_test_dir'
+for filename in os.listdir(path):
+	mo = date_regex.search(filename)
+	# skip files without a date.
+	if mo == None:
+		continue
+	# Get the different parts of the filename.
+	before_part = mo.group(2)
+	month_part = mo.group(3)
+	day_part = mo.group(5)
+	year_part = mo.group(7)
+	after_part = mo.group(9)
 
 # TODO: Form the EU-style filename
 
