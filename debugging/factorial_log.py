@@ -3,10 +3,10 @@
 import logging
 
 # Disable logging
-logging.disable(logging.CRITICAL)
+#logging.disable(logging.CRITICAL)
 
-logging.basicConfig(level=logging.DEBUG, format=\
-	' %(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, filename='/tmp/python_error.log' ,\
+	format=' %(asctime)s - %(levelname)s - %(message)s')
 
 logging.debug('Start of program')
 
